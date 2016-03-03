@@ -22,3 +22,7 @@ class testFizzbuzz(unittest.TestCase):
     def test_returns_buzz_if_given_six(self):
         self.assertEqual("Buzz", Fizzbuzz.fizzbuzzer(
             self.fizzbuzz, 6))
+
+    def test_returns_fizz_if_given_five(self):
+        self.assertEqual("Fizz", Fizzbuzz.fizzbuzzer(
+            self.fizzbuzz, 5))
