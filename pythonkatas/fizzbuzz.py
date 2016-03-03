@@ -2,4 +2,7 @@ class Fizzbuzz(object):
 
     def fizzbuzzer(self, input_int):
         input = input_int
-        return input
+        if input == 3:
+            return "Buzz"
+        else:
+            return input
