@@ -30,3 +30,7 @@ class testFizzbuzz(unittest.TestCase):
     def test_returns_fizz_if_given_ten(self):
         self.assertEqual("Fizz", Fizzbuzz.fizzbuzzer(
             self.fizzbuzz, 10))
+
+    def test_returns_fizzbuzz_if_given_fifteen(self):
+        self.assertEqual("FizzBuzz", Fizzbuzz.fizzbuzzer(
+            self.fizzbuzz, 15))
