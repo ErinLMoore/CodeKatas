@@ -1,3 +1,5 @@
+import sys
+
 class Fizzbuzz(object):
 
     def fizzbuzzer(self, input_int):
@@ -10,3 +12,10 @@ class Fizzbuzz(object):
         if returnitem == "":
             returnitem = input
         return returnitem
+
+
+if __name__ == '__main__':
+    main = Fizzbuzz
+    fizzbuzz = Fizzbuzz()
+    print (fizzbuzz.fizzbuzzer(int(sys.argv[1])))
+    sys.exit(0)
