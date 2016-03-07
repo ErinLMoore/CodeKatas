@@ -6,4 +6,10 @@ class FizzBuzzTest < Test::Unit::TestCase
     	expected = fizzbuzz.fizzbuzzer 1
     	assert_equal expected, 1
     end
+
+    def test_return_two_if_given_two
+    	fizzbuzz = Fizzbuzz.new
+    	expected = fizzbuzz.fizzbuzzer 2
+    	assert_equal expected, 2
+    end
 end
