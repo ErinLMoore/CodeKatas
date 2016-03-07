@@ -1,7 +1,7 @@
-How to run fizzbuzz.py:
+# How to run fizzbuzz.py:
 
 python fizzbuzz.py arg
 
-How to test fizzbuzz.py:
+# How to test fizzbuzz.py:
 
 python -m unittest fizzbuzztest
