@@ -20,4 +20,10 @@ class FizzBuzzTest < Test::Unit::TestCase
     	assert_equal expected, "fizz"
     end
 
+    def test_return_fizz_if_given_multiple_of_three
+    	fizzbuzz = Fizzbuzz.new
+    	expected = fizzbuzz.fizzbuzzer 6
+    	assert_equal expected, "fizz"
+    end
+
 end
