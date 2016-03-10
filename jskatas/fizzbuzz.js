@@ -1,8 +1,10 @@
 function fizzbuzzer(input_int) {
+  var returnvar = "";
   if (input_int %3 == 0)
-    {return 'Fizz';}
-  else if (input_int %5 == 0)
-      {return 'Buzz';}
-  else
-    {return input_int;}
+    {returnvar +='Fizz';}
+  if (input_int %5 == 0)
+      {returnvar +='Buzz';}
+  if (returnvar == "")
+    {returnvar = input_int;}
+  return returnvar;
 }
