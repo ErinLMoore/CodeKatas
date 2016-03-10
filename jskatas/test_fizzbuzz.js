@@ -17,3 +17,8 @@ QUnit.test("returns Fizz when given 6", function(assert) {
 	var result = fizzbuzzer(6);
 	assert.equal(result, 'Fizz');
 });
+
+QUnit.test("returns Buzz when given 10", function(assert) {
+	var result = fizzbuzzer(10);
+	assert.equal(result, 'Buzz');
+});
