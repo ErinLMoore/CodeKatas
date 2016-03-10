@@ -1,6 +1,6 @@
 function fizzbuzzer(input_int) {
-  if (input_int == 3)
+  if (input_int %3 == 0)
     {return 'Fizz';}
-  else 
+  else
     {return input_int;}
 }

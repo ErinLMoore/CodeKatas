@@ -9,6 +9,11 @@ QUnit.test("returns 2 when given 2", function(assert) {
 });
 
 QUnit.test("returns Fizz when given 3", function(assert) {
-	var result = fizzbuzzer('Fizz');
+	var result = fizzbuzzer(3);
+	assert.equal(result, 'Fizz');
+});
+
+QUnit.test("returns Fizz when given 6", function(assert) {
+	var result = fizzbuzzer(6);
 	assert.equal(result, 'Fizz');
 });
