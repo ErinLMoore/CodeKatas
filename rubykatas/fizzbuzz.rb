@@ -11,3 +11,6 @@ class Fizzbuzz
   end
 end
 end
+
+#add .self to fuzzbuzzer def to make runnable from command line
+#puts Fizzbuzz.fizzbuzzer(ARGV[0])
