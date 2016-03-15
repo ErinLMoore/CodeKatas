@@ -28,4 +28,9 @@ public class FizzBuzzTest{
     public void returnsFizzifGivenThree() {
         assertEquals(String.valueOf("Fizz"), fb.fizzbuzzer(3));
     }
+
+    @Test
+    public void returnsFizzifGivenSix() {
+        assertEquals(String.valueOf("Fizz"), fb.fizzbuzzer(6));
+    }
 }
