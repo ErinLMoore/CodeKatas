@@ -1,0 +1,26 @@
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+/**
+ * Created by erinmoore on 3/15/16.
+ */
+public class FizzBuzzTest{
+    FizzBuzz fb;
+
+    @Before
+    public void setUp(){
+         fb = new FizzBuzz();
+    }
+
+    @Test
+    public void returnsOneifGivenOnes() {
+        assertEquals(String.valueOf('1'), fb.fizzbuzzer(1));
+    }
+
+    @Test
+    public void returnsTwoifGivenTwo() {
+        assertEquals(String.valueOf('2'), fb.fizzbuzzer(2));
+    }
+}
