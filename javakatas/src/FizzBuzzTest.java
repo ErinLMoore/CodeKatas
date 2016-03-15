@@ -16,11 +16,16 @@ public class FizzBuzzTest{
 
     @Test
     public void returnsOneifGivenOnes() {
-        assertEquals(String.valueOf('1'), fb.fizzbuzzer(1));
+        assertEquals(String.valueOf("1"), fb.fizzbuzzer(1));
     }
 
     @Test
     public void returnsTwoifGivenTwo() {
-        assertEquals(String.valueOf('2'), fb.fizzbuzzer(2));
+        assertEquals(String.valueOf("2"), fb.fizzbuzzer(2));
+    }
+
+    @Test
+    public void returnsFizzifGivenThree() {
+        assertEquals(String.valueOf("Fizz"), fb.fizzbuzzer(3));
     }
 }
