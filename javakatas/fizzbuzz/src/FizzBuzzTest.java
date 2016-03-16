@@ -33,8 +33,14 @@ public class FizzBuzzTest{
     public void returnsFizzifGivenSix() {
         assertEquals(String.valueOf("Fizz"), fb.fizzbuzzer(6));
     }
+
     @Test
     public void returnsBuzzifGivenTen() {
         assertEquals(String.valueOf("Buzz"), fb.fizzbuzzer(10));
+    }
+
+    @Test
+    public void returnsFizzBuzzifGivenSixty() {
+        assertEquals(String.valueOf("FizzBuzz"), fb.fizzbuzzer(60));
     }
 }
