@@ -28,4 +28,8 @@ class testRomanNumeral(unittest.TestCase):
         self.assertEqual('XIII', ArabicToRoman.return_value(self.atr, 13))
         self.assertEqual('XIV', ArabicToRoman.return_value(self.atr, 14))
         self.assertEqual('XVI', ArabicToRoman.return_value(self.atr, 16))
-        self.assertEqual('XIX', ArabicToRoman.return_value(self.atr, 19))  
+        self.assertEqual('XIX', ArabicToRoman.return_value(self.atr, 19))
+
+    def test_returns_for_multiples_of_10(self):
+        self.assertEqual('XX', ArabicToRoman.return_value(self.atr, 20))
+        self.assertEqual('XXX', ArabicToRoman.return_value(self.atr, 30))
