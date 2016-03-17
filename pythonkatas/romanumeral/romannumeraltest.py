@@ -22,3 +22,10 @@ class testRomanNumeral(unittest.TestCase):
 
     def test_returnsIX_for_9(self):
         self.assertEqual('IX', ArabicToRoman.return_value(self.atr, 9))
+
+    def test_returns_properly_for_X_through_XIX(self):
+        self.assertEqual('X', ArabicToRoman.return_value(self.atr, 10))
+        self.assertEqual('XIII', ArabicToRoman.return_value(self.atr, 13))
+        self.assertEqual('XIV', ArabicToRoman.return_value(self.atr, 14))
+        self.assertEqual('XVI', ArabicToRoman.return_value(self.atr, 16))
+        self.assertEqual('XIX', ArabicToRoman.return_value(self.atr, 19))  
