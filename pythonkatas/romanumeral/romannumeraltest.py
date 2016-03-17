@@ -9,3 +9,6 @@ class testRomanNumeral(unittest.TestCase):
     def test_returnsI_through_III_for_1_through_3(self):
         self.assertEqual('I', ArabicToRoman.return_value(self.atr, 1))
         self.assertEqual('III', ArabicToRoman.return_value(self.atr, 3))
+
+    def test_returnsIV_for_four(self):
+        self.assertEqual('IV', ArabicToRoman.return_value(self.atr, 4))
