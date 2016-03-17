@@ -4,7 +4,9 @@ class ArabicToRoman(object):
 
     def return_value(self, input_int):
         return_val = ""
-        if input_int == 4:
+        if input_int == 5:
+            return_val = "V"
+        elif input_int == 4:
             return_val = "IV"
         else:
             return_val = self.handle_ones(input_int)
