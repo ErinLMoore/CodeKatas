@@ -1,7 +1,7 @@
 import unittest
 from romannumeral import ArabicToRoman
 
-class testRomanNumeral(unittest.TestCase):
+class testArabictoRoman(unittest.TestCase):
 
     def setUp(self):
         self.atr = ArabicToRoman()

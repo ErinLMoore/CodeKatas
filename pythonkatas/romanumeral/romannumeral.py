@@ -1,12 +1,16 @@
 import sys
 
+multiples_list=['M','C','X','I']
+arabic_roman_list= [("M", 1000),("CM", 900),("D",500),("CD", 400),\
+("C", 100),("XC", 90),("L",50),("XL",40),("X",10),("IX",9),("V", 5),\
+("IV",4), ("I",1)]
+numerals_allowed_in_a_row= 3
+
 class ArabicToRoman(object):
     def __init__(self):
-        self.multiples_list=['M','C','X','I']
-        self.arabic_roman_list= [("M", 1000),("CM", 900),("D",500),("CD", 400),\
-        ("C", 100),("XC", 90),("L",50),("XL",40),("X",10),("IX",9),("V", 5),\
-        ("IV",4), ("I",1)]
-        self.numerals_allowed_in_a_row= 3
+        self.multiples_list=multiples_list
+        self.arabic_roman_list= arabic_roman_list
+        self.numerals_allowed_in_a_row= numeral_allowed_in_a_row
 
     def return_value(self, input_int):
         self.return_val = ""
@@ -28,3 +32,13 @@ class ArabicToRoman(object):
         if 1<= number_of_letters_to_add <= self.numerals_allowed_in_a_row:
             self.return_val += letter_value_pair[0]*number_of_letters_to_add
             self.input_int -= letter_value_pair[1]*number_of_letters_to_add
+
+class RomantoArabic(object):
+    def __init__(self):
+        self.multiples_list=multiples_list
+        self.arabic_roman_list= arabic_roman_list
+        self.numerals_allowed_in_a_row= numerals_allowed_in_a_row
+
+    def return_value(self, input_string):
+        self.input_string = input_string
+        return len(input_string)
