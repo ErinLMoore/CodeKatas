@@ -16,7 +16,7 @@ class ArabicToRoman(object):
     def handle_repeatables(self):
         for letter_value_pair in self.arabic_roman_multiples_list:
             number_of_letters_to_add = self.input_int/letter_value_pair[1]
-            if number_of_letters_to_add is not 4 and number_of_letters_to_add >=1:
+            if number_of_letters_to_add <4 and number_of_letters_to_add >=1:
                 self.return_val += letter_value_pair[0]*number_of_letters_to_add
                 self.input_int -= letter_value_pair[1]*number_of_letters_to_add
 

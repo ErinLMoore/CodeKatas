@@ -20,7 +20,7 @@ class testRomanNumeral(unittest.TestCase):
         self.assertEqual('VI', ArabicToRoman.return_value(self.atr, 6))
         self.assertEqual('VIII', ArabicToRoman.return_value(self.atr, 8))
 
-    def test_returns_properly_for_X_through_XIX(self):
+    def test_returns_properly_for_10_through_19(self):
         self.assertEqual('X', ArabicToRoman.return_value(self.atr, 10))
         self.assertEqual('XIII', ArabicToRoman.return_value(self.atr, 13))
         self.assertEqual('XIV', ArabicToRoman.return_value(self.atr, 14))
@@ -31,8 +31,14 @@ class testRomanNumeral(unittest.TestCase):
         self.assertEqual('XX', ArabicToRoman.return_value(self.atr, 20))
         self.assertEqual('XXX', ArabicToRoman.return_value(self.atr, 30))
 
-    def test_returns_for_twenty_through_40(self):
+    def test_returns_for_20_through_40(self):
         self.assertEqual('XXII', ArabicToRoman.return_value(self.atr, 22))
         self.assertEqual('XXIV', ArabicToRoman.return_value(self.atr, 24))
         self.assertEqual('XXXIII', ArabicToRoman.return_value(self.atr, 33))
         self.assertEqual('XXXIX', ArabicToRoman.return_value(self.atr, 39))
+
+    def test_returns_for_40_through_59(self):
+        self.assertEqual('XLIV', ArabicToRoman.return_value(self.atr, 44))
+        self.assertEqual('XLIX', ArabicToRoman.return_value(self.atr, 49))
+        self.assertEqual('LII', ArabicToRoman.return_value(self.atr, 52))
+        self.assertEqual('LVIII', ArabicToRoman.return_value(self.atr, 58))
