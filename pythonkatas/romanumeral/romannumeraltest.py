@@ -10,18 +10,14 @@ class testRomanNumeral(unittest.TestCase):
         self.assertEqual('I', ArabicToRoman.return_value(self.atr, 1))
         self.assertEqual('III', ArabicToRoman.return_value(self.atr, 3))
 
-    def test_returnsIV_for_four(self):
+    def test_returns_properly_for_non_repeatables(self):
         self.assertEqual('IV', ArabicToRoman.return_value(self.atr, 4))
-
-    def test_returnsV_for_five(self):
         self.assertEqual('V', ArabicToRoman.return_value(self.atr, 5))
-
+        self.assertEqual('IX', ArabicToRoman.return_value(self.atr, 9))
+        
     def test_returnsVI_VIII_for_six_through_8(self):
         self.assertEqual('VI', ArabicToRoman.return_value(self.atr, 6))
         self.assertEqual('VIII', ArabicToRoman.return_value(self.atr, 8))
-
-    def test_returnsIX_for_9(self):
-        self.assertEqual('IX', ArabicToRoman.return_value(self.atr, 9))
 
     def test_returns_properly_for_X_through_XIX(self):
         self.assertEqual('X', ArabicToRoman.return_value(self.atr, 10))
@@ -33,3 +29,9 @@ class testRomanNumeral(unittest.TestCase):
     def test_returns_for_multiples_of_10(self):
         self.assertEqual('XX', ArabicToRoman.return_value(self.atr, 20))
         self.assertEqual('XXX', ArabicToRoman.return_value(self.atr, 30))
+
+    def test_returns_for_twenty_through_40(self):
+        self.assertEqual('XXII', ArabicToRoman.return_value(self.atr, 22))
+        self.assertEqual('XXIV', ArabicToRoman.return_value(self.atr, 24))
+        self.assertEqual('XXXIII', ArabicToRoman.return_value(self.atr, 33))
+        self.assertEqual('XXXIX', ArabicToRoman.return_value(self.atr, 39))
