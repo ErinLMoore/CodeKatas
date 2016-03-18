@@ -9,7 +9,7 @@ class ArabicToRoman(object):
     def return_value(self, input_int):
         self.return_val = ""
         self.input_int = input_int
-        self.handle_single_letters()
+        self.calculate_returns()
         self.handle_ones()
         return self.return_val
 
@@ -19,7 +19,7 @@ class ArabicToRoman(object):
             self.return_val += letter_value_pair[0]*number_of_letters_to_add
             self.input_int -= letter_value_pair[1]*number_of_letters_to_add
 
-    def handle_single_letters(self):
+    def calculate_returns(self):
         for letter_value_pair in self.arabic_roman_list:
             if letter_value_pair[0] in self.multiples_list:
                 self.handle_repeatables(letter_value_pair)
