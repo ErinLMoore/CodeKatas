@@ -49,4 +49,6 @@ class testRomanNumeral(unittest.TestCase):
         self.assertEqual('LXXVII', ArabicToRoman.return_value(self.atr, 77))
         self.assertEqual('LXXXI', ArabicToRoman.return_value(self.atr, 81))
 
-    
+    def test_returns_for_90_through_99(self):
+        self.assertEqual('XCIII', ArabicToRoman.return_value(self.atr, 93))
+        self.assertEqual('XCIX', ArabicToRoman.return_value(self.atr, 99))
