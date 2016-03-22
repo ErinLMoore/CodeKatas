@@ -7,4 +7,10 @@ class ArabicToRomanTest < Test::Unit::TestCase
     	expected = atr.return_value 1
     	assert_equal expected, 'I'
     end
+
+    def test_return_III_if_given_three
+    	atr = Arabic_To_Roman.new
+    	expected = atr.return_value 3
+    	assert_equal expected, 'III'
+    end
 end
