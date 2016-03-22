@@ -7,3 +7,4 @@ class ArabicToRomanTest < Test::Unit::TestCase
     	expected = atr.return_value 1
     	assert_equal expected, 'I'
     end
+end
