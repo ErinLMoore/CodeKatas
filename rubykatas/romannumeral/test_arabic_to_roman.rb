@@ -9,14 +9,13 @@ class ArabicToRomanTest < Test::Unit::TestCase
       expected = atr.return_value 3
     	assert_equal expected, 'III'
     end
-    def test_return_IV_for_4
+    def test_return_unique_singles
     	atr = Arabic_To_Roman.new
     	expected = atr.return_value 4
     	assert_equal expected, 'IV'
-    end
-    def test_return_V_for_5
-    	atr = Arabic_To_Roman.new
-    	expected = atr.return_value 5
+      expected = atr.return_value 5
     	assert_equal expected, 'V'
+      expected = atr.return_value 9
+      assert_equal expected, 'IX'
     end
 end
