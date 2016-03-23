@@ -18,4 +18,12 @@ class ArabicToRomanTest < Test::Unit::TestCase
       expected = atr.return_value 9
       assert_equal expected, 'IX'
     end
+
+    def test_return_VI_through_VII
+      atr = Arabic_To_Roman.new
+      expected = atr.return_value 6
+      assert_equal expected, 'VI'
+      expected = atr.return_value 8
+      assert_equal expected, 'VIII'
+    end
 end
