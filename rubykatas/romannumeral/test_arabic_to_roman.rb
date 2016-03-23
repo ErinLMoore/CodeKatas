@@ -34,4 +34,12 @@ class ArabicToRomanTest < Test::Unit::TestCase
       expected = atr.return_value 30
       assert_equal expected, 'XXX'
     end
+
+    def test_twenties_through_thirties
+      atr = Arabic_To_Roman.new
+      expected = atr.return_value 27
+      assert_equal expected, 'XXVII'
+      expected = atr.return_value 39
+      assert_equal expected, 'XXXIX'
+    end
 end
