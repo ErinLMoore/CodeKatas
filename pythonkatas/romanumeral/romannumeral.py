@@ -37,4 +37,6 @@ class RomantoArabic(object):
         self.multiples_list=['M','C','X','I']
         self.numerals_allowed_in_a_row= 3
     def return_value(self, input_int):
-        return 1
+        return_val = 0
+        return_val = len(input_int)
+        return return_val
