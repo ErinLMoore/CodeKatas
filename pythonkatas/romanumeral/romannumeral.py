@@ -1,4 +1,5 @@
 from __future__ import division
+
 import math
 import sys
 
@@ -17,10 +18,8 @@ class ArabicToRoman(object):
     def calculate_returns(self):
         for index,value in enumerate(self.roman_list):
             if index == 0 or index%2 == 0:
-                divisor =  int(math.ceil(10 ** (index-1)))
-
+                divisor =  int(math.ceil(10 ** math.ceil(index/2)))
                 if self.input_int >= self.value_of_highest_numeral/divisor:
-
                     self.return_val += value * int(self.input_int/(self.value_of_highest_numeral/divisor))
                     self.input_int -= (self.value_of_highest_numeral/divisor) * (self.input_int/(self.value_of_highest_numeral/divisor))
 

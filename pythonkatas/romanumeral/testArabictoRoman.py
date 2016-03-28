@@ -12,3 +12,6 @@ class testArabictoRoman(unittest.TestCase):
     def test_returns_for_multiples_of_100(self):
         self.assertEqual('CC', ArabicToRoman.return_value(self.atr, 200))
         self.assertEqual('CCC', ArabicToRoman.return_value(self.atr, 300))
+    def test_returns_for_multiples_of_10(self):
+        self.assertEqual('XX', ArabicToRoman.return_value(self.atr, 20))
+        self.assertEqual('XXX', ArabicToRoman.return_value(self.atr, 30))
