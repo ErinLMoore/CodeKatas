@@ -1,12 +1,11 @@
 import sys
+import math
 
 class ArabicToRoman(object):
     def __init__(self):
-        self.multiples_list=['M','C','X','I']
-        self.numerals_allowed_in_a_row= 3
-        self.arabic_roman_list= [("M", 1000),("CM", 900),("D",500),("CD", 400),\
-        ("C", 100),("XC", 90),("L",50),("XL",40),("X",10),("IX",9),("V", 5),\
-        ("IV",4), ("I",1)]
+        self.roman_list = ['M','D','C', 'L', 'X', 'V', 'I']
+        self.max_repeats_of_value = (len(self.roman_list)-1)/2
+        self.value_of_highest_numeral = int(10 ** self.max_repeats_of_value)
 
     def return_value(self, input_int):
         self.return_val = ""
@@ -15,28 +14,26 @@ class ArabicToRoman(object):
         return self.return_val
 
     def calculate_returns(self):
-        for letter_value_pair in self.arabic_roman_list:
-            if letter_value_pair[0] in self.multiples_list:
-                self.handle_repeatables(letter_value_pair)
-            else:
-                if self.input_int >= letter_value_pair[1]:
-                    self.return_val += letter_value_pair[0]
-                    self.input_int -= letter_value_pair[1]
-
-    def handle_repeatables(self, letter_value_pair):
-        number_of_letters_to_add = self.input_int/letter_value_pair[1]
-        if 1<= number_of_letters_to_add <= self.numerals_allowed_in_a_row:
-            self.return_val += letter_value_pair[0]*number_of_letters_to_add
-            self.input_int -= letter_value_pair[1]*number_of_letters_to_add
+        for index,value in enumerate(self.roman_list):
+            if self.input_int >= self.value_of_highest_numeral:
+                if  int(self.input_int/self.value_of_highest_numeral)<=self.max_repeats_of_value:
+                    self.return_val += value * int(self.input_int/self.value_of_highest_numeral)
+                    self.input_int -= self.input_int * (self.input_int/self.value_of_highest_numeral)
+                else:
+                    self.return_val += value * self.value_of_highest_numeral
+                    self.input_int -= self.value_of_highest_numeral * self.max_repeats_of_value
 
 class RomantoArabic(object):
     def __init__(self):
-        self.arabic_roman_list= [("M", 1000),("CM", 900),("D",500),("CD", 400),\
-        ("C", 100),("XC", 90),("L",50),("XL",40),("X",10),("IX",9),("V", 5),\
-        ("IV",4), ("I",1)]
-        self.multiples_list=['M','C','X','I']
-        self.numerals_allowed_in_a_row= 3
-    def return_value(self, input_int):
-        return_val = 0
-        return_val = len(input_int)
+        pass
+    def return_value(self, input_string):
+        return_val = input_string
+
         return return_val
+
+
+if __name__ == '__main__':
+    main = ArabicToRoman
+    atr = ArabicToRoman()
+    print (atr.return_value(int(sys.argv[1])))
+    sys.exit(0)
