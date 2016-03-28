@@ -1,5 +1,6 @@
-import sys
+from __future__ import division
 import math
+import sys
 
 class ArabicToRoman(object):
     def __init__(self):
@@ -15,13 +16,13 @@ class ArabicToRoman(object):
 
     def calculate_returns(self):
         for index,value in enumerate(self.roman_list):
-            if self.input_int >= self.value_of_highest_numeral:
-                if  int(self.input_int/self.value_of_highest_numeral)<=self.max_repeats_of_value:
-                    self.return_val += value * int(self.input_int/self.value_of_highest_numeral)
-                    self.input_int -= self.input_int * (self.input_int/self.value_of_highest_numeral)
-                else:
-                    self.return_val += value * self.value_of_highest_numeral
-                    self.input_int -= self.value_of_highest_numeral * self.max_repeats_of_value
+            if index == 0 or index%2 == 0:
+                divisor =  int(math.ceil(10 ** (index-1)))
+
+                if self.input_int >= self.value_of_highest_numeral/divisor:
+
+                    self.return_val += value * int(self.input_int/(self.value_of_highest_numeral/divisor))
+                    self.input_int -= (self.value_of_highest_numeral/divisor) * (self.input_int/(self.value_of_highest_numeral/divisor))
 
 class RomantoArabic(object):
     def __init__(self):
