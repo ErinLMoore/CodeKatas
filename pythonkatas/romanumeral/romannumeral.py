@@ -19,14 +19,19 @@ class ArabicToRoman(object):
         for index,value in enumerate(self.roman_list):
             if index == 0 or index%2 == 0:
                 divisor =  int(math.ceil(10 ** math.ceil(index/2)))
+                divisor2 =  int(math.ceil(10 ** math.ceil((index+2)/2)))
                 if self.input_int >= self.value_of_highest_numeral/divisor:
                     self.return_val += value * int(self.input_int/math.floor(self.value_of_highest_numeral/divisor))
                     self.input_int -= (self.value_of_highest_numeral/divisor) * math.floor(self.input_int/(self.value_of_highest_numeral/divisor))
+                if self.input_int >= self.value_of_highest_numeral/divisor - self.value_of_highest_numeral/divisor2:
+                    self.return_val  += self.roman_list[index + 2]+value
+                    self.input_int -= self.value_of_highest_numeral/divisor - self.value_of_highest_numeral/divisor2
             else:
                 divisor =  int(math.ceil(10 ** math.ceil(index/2)))*(.2)
                 if self.input_int >= self.value_of_highest_numeral/divisor:
                     self.return_val += value
                     self.input_int -= self.value_of_highest_numeral/divisor
+
 
 
 class RomantoArabic(object):
