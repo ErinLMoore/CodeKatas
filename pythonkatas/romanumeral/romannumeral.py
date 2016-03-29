@@ -17,24 +17,22 @@ class ArabicToRoman(object):
 
     def calculate_returns(self):
         for index,value in enumerate(self.roman_list):
+            current_working_value = self.current_working_value(index)
             if index == 0 or index%2 == 0:
-                current_working_value = self.current_working_value(index)
-                divisor2 =  int(math.ceil(10 ** math.ceil((index+2)/2)))
+                index_offset = 2
                 if self.input_int >= current_working_value:
                     self.return_val += value * int(self.input_int/math.floor(current_working_value))
                     self.input_int -= (current_working_value) * math.floor(self.input_int/(current_working_value))
-                self.handle_paired_numerals(index, value, current_working_value, divisor2, 2)
-
             else:
-                current_working_value = self.current_working_value(index)
-                divisor2 =  int(math.ceil(10 ** math.ceil((index+1)/2)))
+                index_offset = 1
                 if self.input_int >= current_working_value:
                     self.return_val += value
                     self.input_int -= current_working_value
-                self.handle_paired_numerals(index, value, current_working_value, divisor2, 1)
+            self.handle_paired_numerals(index, value, current_working_value, index_offset)
 
 
-    def handle_paired_numerals(self, index, value, current_working_value, divisor2, index_offset):
+    def handle_paired_numerals(self, index, value, current_working_value, index_offset):
+        divisor2 =  int(math.ceil(10 ** math.ceil((index+index_offset)/2)))
         if self.input_int >= current_working_value - self.value_of_highest_numeral/divisor2:
             self.return_val  += self.roman_list[index + index_offset]+value
             self.input_int -= current_working_value - self.value_of_highest_numeral/divisor2
