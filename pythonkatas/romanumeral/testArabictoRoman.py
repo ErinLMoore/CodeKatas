@@ -38,3 +38,5 @@ class testArabictoRoman(unittest.TestCase):
         self.assertEqual('IX', ArabicToRoman.return_value(self.atr, 9))
     def test_returns_for_4(self):
         self.assertEqual('IV', ArabicToRoman.return_value(self.atr, 4))
+    def test_return_for_3999_to_put_it_all_together(self):
+        self.assertEqual('MMMCMXCIX', ArabicToRoman.return_value(self.atr, 3999))
