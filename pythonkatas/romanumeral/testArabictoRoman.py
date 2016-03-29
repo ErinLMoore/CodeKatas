@@ -22,3 +22,5 @@ class testArabictoRoman(unittest.TestCase):
         self.assertEqual('D', ArabicToRoman.return_value(self.atr,500))
     def test_returns_for_50(self):
         self.assertEqual('L', ArabicToRoman.return_value(self.atr,50))
+    def test_returns_for_5(self):
+        self.assertEqual('V', ArabicToRoman.return_value(self.atr,5))
