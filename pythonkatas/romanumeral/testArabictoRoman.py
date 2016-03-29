@@ -28,3 +28,5 @@ class testArabictoRoman(unittest.TestCase):
         self.assertEqual('MMDCCLXXVII', ArabicToRoman.return_value(self.atr,2777))
     def test_returns_for_900(self):
         self.assertEqual('CM', ArabicToRoman.return_value(self.atr, 900))
+    def test_returns_for_400(self):
+        self.assertEqual('CD', ArabicToRoman.return_value(self.atr, 400))
