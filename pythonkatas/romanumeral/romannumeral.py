@@ -23,7 +23,7 @@ class ArabicToRoman(object):
                     self.return_val += value * int(self.input_int/(self.value_of_highest_numeral/divisor))
                     self.input_int -= (self.value_of_highest_numeral/divisor) * (self.input_int/(self.value_of_highest_numeral/divisor))
             else:
-                divisor =  int(math.ceil(2 ** math.ceil(index/2)))
+                divisor =  int(math.ceil(10 ** math.ceil(index/2)))*(.2)
                 if self.input_int >= self.value_of_highest_numeral/divisor:
                     self.return_val += value
                     self.input_int -= self.value_of_highest_numeral/divisor
