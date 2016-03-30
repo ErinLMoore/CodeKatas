@@ -8,7 +8,8 @@ class ArabicToRoman(object):
         self.roman_list = ['M','D','C', 'L', 'X', 'V', 'I']
         self.max_repeats_of_value = (len(self.roman_list)-1)/2
         self.value_of_highest_numeral = int(10 ** self.max_repeats_of_value)
-
+        self.values_list = [self.value_of_highest_numeral]
+        
     def return_value(self, input_int):
         self.return_val = ""
         self.input_int = input_int
@@ -16,31 +17,36 @@ class ArabicToRoman(object):
         return self.return_val
 
     def calculate_returns(self):
-        for index,value in enumerate(self.roman_list):
+        for index,numeral in enumerate(self.roman_list):
             current_working_value = self.current_working_value(index)
-            if index == 0 or index%2 == 0:
-                index_offset = 2
-                if self.input_int >= current_working_value:
-                    self.return_val += value * int(self.input_int/math.floor(current_working_value))
-                    self.input_int -= (current_working_value) * math.floor(self.input_int/(current_working_value))
-            else:
-                index_offset = 1
-                if self.input_int >= current_working_value:
-                    self.return_val += value
-                    self.input_int -= current_working_value
-            self.handle_paired_numerals(index, value, current_working_value, index_offset)
+            if self.input_int >= current_working_value:
+                self.return_val += numeral * self.number_of_numerals_appended(index,current_working_value)
+                self.input_int -= (current_working_value) * self.input_reducing_multiplier(index, current_working_value)
+            index_offset = 2 -(index%2)
+            self.handle_paired_numerals(index, numeral, current_working_value, index_offset)
 
+    def input_reducing_multiplier(self, index, current_working_value):
+        if index %2 == 1:
+            return 1
+        else:
+            return  math.floor(self.input_int/(current_working_value))
 
-    def handle_paired_numerals(self, index, value, current_working_value, index_offset):
+    def handle_paired_numerals(self, index, numeral, current_working_value, index_offset):
         divisor2 =  int(math.ceil(10 ** math.ceil((index+index_offset)/2)))
         if self.input_int >= current_working_value - self.value_of_highest_numeral/divisor2:
-            self.return_val  += self.roman_list[index + index_offset]+value
+            self.return_val  += self.roman_list[index + index_offset]+numeral
             self.input_int -= current_working_value - self.value_of_highest_numeral/divisor2
 
+    def number_of_numerals_appended(self, index, current_working_value):
+        if index %2 == 1:
+            return 1
+        else:
+            return int(self.input_int/math.floor(current_working_value))
+
     def current_working_value(self, index):
-        if index == 0 or index%2 == 0:
-            divisor =  int(math.ceil(10 ** math.ceil(index/2)))
-        else: divisor =  int(math.ceil(10 ** math.ceil(index/2)))*(.2)
+        divisor =  int(math.ceil(10 ** math.ceil(index/2)))
+        if index%2 == 1:
+            divisor =  divisor*(.2)
         return self.value_of_highest_numeral/divisor
 
 
