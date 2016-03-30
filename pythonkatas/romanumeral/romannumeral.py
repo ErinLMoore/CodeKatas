@@ -34,6 +34,13 @@ class ArabicToRoman(object):
                 self.input_int -= current_working_value * self.input_reducing_multiplier(index, current_working_value)
             self.handle_paired_numerals(index, numeral, current_working_value, index_offset=(2 - (index%2)))
 
+    def handle_paired_numerals(self, index, numeral, current_working_value, index_offset):
+         divisor2 =  int(math.ceil(10 ** math.ceil((index+index_offset)/2)))
+         if self.input_int >= current_working_value - self.value_of_highest_numeral/divisor2:
+             self.return_val  += self.roman_list[index + index_offset]+numeral
+             self.input_int -= current_working_value - self.value_of_highest_numeral/divisor2
+
+
     def input_reducing_multiplier(self, index, current_working_value):
         if index %2 == 0:
             return math.floor(self.input_int/(current_working_value))
