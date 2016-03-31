@@ -5,9 +5,10 @@ import sys
 
 class ArabicToRoman(object):
     def __init__(self):
-        self.roman_list = ['M','D','C', 'L', 'X', 'V', 'I']
-        self.max_repeats_of_value = (len(self.roman_list)-1)/2
-        self.value_of_highest_numeral = int(10 ** self.max_repeats_of_value)
+        self.roman_list = ['Z','Q','M','D','C', 'L', 'X', 'V', 'I']
+        self.base_value = 10
+        self.max_repeats_of_value = int(self.base_value/2)-1
+        self.value_of_highest_numeral = int(self.base_value ** self.max_repeats_of_value)
         self.values_list = self.calculate_values_list()
 
     def return_value(self, input_int):
