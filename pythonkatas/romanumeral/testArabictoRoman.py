@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import unittest
 from romannumeral import ArabicToRoman
 
@@ -7,40 +8,70 @@ class testArabictoRoman(unittest.TestCase):
         self.atr = ArabicToRoman()
 
     def test_returns_for_multiples_of_1000(self):
-        self.assertEqual('MM', ArabicToRoman.return_value(self.atr, 2000))
-        self.assertEqual('MMM', ArabicToRoman.return_value(self.atr, 3000))
+        input = 2000
+        result = (ArabicToRoman.return_value(self.atr, input))
+        self.assertEqual('MM', result)
     def test_returns_for_multiples_of_100(self):
-        self.assertEqual('CC', ArabicToRoman.return_value(self.atr, 200))
-        self.assertEqual('CCC', ArabicToRoman.return_value(self.atr, 300))
+        input = 200
+        result = (ArabicToRoman.return_value(self.atr, input))
+        self.assertEqual('CC', result)
     def test_returns_for_multiples_of_10(self):
-        self.assertEqual('XX', ArabicToRoman.return_value(self.atr, 20))
-        self.assertEqual('XXX', ArabicToRoman.return_value(self.atr, 30))
+        input = 30
+        result = (ArabicToRoman.return_value(self.atr, input))
+        self.assertEqual('XXX', result)
     def test_returns_for_multiples_of_1(self):
-        self.assertEqual('II', ArabicToRoman.return_value(self.atr,2))
-        self.assertEqual('III', ArabicToRoman.return_value(self.atr,3))
+        input = 2
+        result = (ArabicToRoman.return_value(self.atr, input))
+        self.assertEqual('II', result)
     def test_returns_for_500(self):
-        self.assertEqual('D', ArabicToRoman.return_value(self.atr,500))
+        input = 500
+        result = (ArabicToRoman.return_value(self.atr, input))
+        self.assertEqual('D', result)
     def test_returns_for_50(self):
-        self.assertEqual('L', ArabicToRoman.return_value(self.atr,50))
+        input = 50
+        result = (ArabicToRoman.return_value(self.atr, input))
+        self.assertEqual('L', result)
     def test_returns_for_5(self):
-        self.assertEqual('V', ArabicToRoman.return_value(self.atr,5))
+        input = 5
+        result = (ArabicToRoman.return_value(self.atr, input))
+        self.assertEqual('V', result)
     def test_returns_for_2777_to_put_it_all_together(self):
-        self.assertEqual('MMDCCLXXVII', ArabicToRoman.return_value(self.atr,2777))
+        input = 2777
+        result = (ArabicToRoman.return_value(self.atr, input))
+        self.assertEqual('MMDCCLXXVII', result)
     def test_returns_for_900(self):
-        self.assertEqual('CM', ArabicToRoman.return_value(self.atr, 900))
+        input = 900
+        result = (ArabicToRoman.return_value(self.atr, input))
+        self.assertEqual('CM', result)
     def test_returns_for_400(self):
-        self.assertEqual('CD', ArabicToRoman.return_value(self.atr, 400))
+        input = 400
+        result = (ArabicToRoman.return_value(self.atr, input))
+        self.assertEqual('CD', result)
     def test_returns_for_90(self):
-        self.assertEqual('XC', ArabicToRoman.return_value(self.atr, 90))
+        input = 90
+        result = (ArabicToRoman.return_value(self.atr, input))
+        self.assertEqual('XC', result)
     def test_returns_for_40(self):
-        self.assertEqual('XL', ArabicToRoman.return_value(self.atr, 40))
+        input = 40
+        result = (ArabicToRoman.return_value(self.atr, input))
+        self.assertEqual('XL', result)
     def test_returns_for_9(self):
-        self.assertEqual('IX', ArabicToRoman.return_value(self.atr, 9))
+        input = 9
+        result = (ArabicToRoman.return_value(self.atr, input))
+        self.assertEqual('IX', result)
     def test_returns_for_4(self):
-        self.assertEqual('IV', ArabicToRoman.return_value(self.atr, 4))
+        input = 4
+        result = (ArabicToRoman.return_value(self.atr, input))
+        self.assertEqual('IV', result)
     def test_return_for_3999_to_put_it_all_together(self):
-        self.assertEqual('MMMCMXCIX', ArabicToRoman.return_value(self.atr, 3999))
+        input =  3999
+        result = (ArabicToRoman.return_value(self.atr, input))
+        self.assertEqual('MMMCMXCIX', result)
     def test_return_for_5001(self):
-        self.assertEqual('QI', ArabicToRoman.return_value(self.atr, 5001))
+        input = 5001
+        result = (ArabicToRoman.return_value(self.atr, input))
+        self.assertEqual('ↁI', result)
     def test_return_for_39440(self):
-        self.assertEqual('ZZZMZCDXL', ArabicToRoman.return_value(self.atr, 39440))
+        input = 39440
+        result = (ArabicToRoman.return_value(self.atr, input))
+        self.assertEqual('ↂↂↂMↂCDXL', result)
