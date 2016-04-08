@@ -4,7 +4,8 @@ class Arabic_To_Roman
 
   def return_value(input_int)
     @input_int = input_int
-    @return_value = "M"
+    @return_length = @input_int/1000
+    @return_value = 'M'* @return_length
     return @return_value
   end
 end
