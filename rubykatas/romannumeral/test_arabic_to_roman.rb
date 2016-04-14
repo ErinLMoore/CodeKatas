@@ -51,4 +51,11 @@ class ArabicToRomanTest < Test::Unit::TestCase
     	assert_equal expected, actual
     end
 
+    def test_return_MMDCCLXXVII
+    	atr = Arabic_To_Roman.new
+      expected = 'MMDCCLXXVII'
+    	actual = atr.return_value 2777
+    	assert_equal expected, actual
+    end
+
 end
