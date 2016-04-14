@@ -9,7 +9,7 @@ class ArabicToRomanTest < Test::Unit::TestCase
     	assert_equal expected, actual
     end
 
-    def test_return_C
+    def test_return_CC
     	atr = Arabic_To_Roman.new
       expected = 'CC'
     	actual = atr.return_value 200
@@ -63,6 +63,48 @@ class ArabicToRomanTest < Test::Unit::TestCase
       expected = 'CM'
     	actual = atr.return_value 900
     	assert_equal expected, actual
+    end
+
+    def test_return_CD
+      atr = Arabic_To_Roman.new
+      expected = 'CD'
+      actual = atr.return_value 400
+      assert_equal expected, actual
+    end
+
+    def test_return_XC
+      atr = Arabic_To_Roman.new
+      expected = 'XC'
+      actual = atr.return_value 90
+      assert_equal expected, actual
+    end
+
+    def test_return_XL
+      atr = Arabic_To_Roman.new
+      expected = 'XL'
+      actual = atr.return_value 40
+      assert_equal expected, actual
+    end
+
+    def test_return_IX
+      atr = Arabic_To_Roman.new
+      expected = 'IX'
+      actual = atr.return_value 9
+      assert_equal expected, actual
+    end
+
+    def test_return_IV
+      atr = Arabic_To_Roman.new
+      expected = 'IV'
+      actual = atr.return_value 4
+      assert_equal expected, actual
+    end
+
+    def test_return_MMMCMXCIX
+      atr = Arabic_To_Roman.new
+      expected = 'MMMCMXCIX'
+      actual = atr.return_value 3999
+      assert_equal expected, actual
     end
 
 end
