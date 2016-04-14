@@ -1,7 +1,7 @@
 class Arabic_To_Roman
   def initialize()
-    @roman_list = ['M','C','X','I']
-    @values_list = [1000,100,10,1]
+    @roman_list = ['M','D','C','L','X','V','I']
+    @values_list = [1000,500,100,50,10,5,1]
   end
 
   def return_value(input_int)

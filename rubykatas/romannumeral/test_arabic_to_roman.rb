@@ -30,4 +30,25 @@ class ArabicToRomanTest < Test::Unit::TestCase
     	assert_equal expected, actual
     end
 
+    def test_return_D
+    	atr = Arabic_To_Roman.new
+      expected = 'D'
+    	actual = atr.return_value 500
+    	assert_equal expected, actual
+    end
+
+    def test_return_L
+    	atr = Arabic_To_Roman.new
+      expected = 'L'
+    	actual = atr.return_value 50
+    	assert_equal expected, actual
+    end
+
+    def test_return_V
+    	atr = Arabic_To_Roman.new
+      expected = 'V'
+    	actual = atr.return_value 5
+    	assert_equal expected, actual
+    end
+
 end
