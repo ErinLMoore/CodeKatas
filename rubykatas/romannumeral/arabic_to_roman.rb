@@ -9,7 +9,7 @@ class Arabic_To_Roman
     for i in 0..@roman_list.length-1
       if input_int/@values_list[i] != 0
         return_length = (input_int/@values_list[i])
-        return_value = @roman_list[i]* return_length
+        return_value += @roman_list[i]* return_length
         input_int -= @values_list[i]* return_length
       end
     end
