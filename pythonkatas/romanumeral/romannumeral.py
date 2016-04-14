@@ -15,27 +15,16 @@ class ArabicToRoman(object):
         return_val = ""
         for index,numeral in enumerate(self.roman_list):
             current_working_value = self.values_list[index]
-            if input_int >= current_working_value:
-                return_val += numeral * self.number_of_numerals_to_append(input_int,index)
-                input_int -= current_working_value * self.input_reducing_multiplier(input_int,index)
+            if input_int/current_working_value is not 0:
+                return_length = int(input_int/current_working_value)
+                return_val += numeral* return_length
+                input_int -= current_working_value* return_length
             subtractive_notation_index_offset=(2 - (index%2))
             subtractive_notation_amount = self.calcuate_subtractive_notation(index, subtractive_notation_index_offset)
             if input_int >= current_working_value - subtractive_notation_amount:
                 return_val  += self.roman_list[index + subtractive_notation_index_offset]+numeral
                 input_int -= current_working_value - subtractive_notation_amount
         return return_val
-
-    def input_reducing_multiplier(self, input_int,index):
-        if index %2 == 0:
-            return math.floor(input_int/( self.values_list[index]))
-        else:
-            return  1
-
-    def number_of_numerals_to_append(self, input_int, index):
-        if index %2 == 0:
-            return int(input_int/math.floor(self.values_list[index]))
-        else:
-            return 1
 
     def calcuate_subtractive_notation(self,index, subtractive_notation_index_offset):
 
