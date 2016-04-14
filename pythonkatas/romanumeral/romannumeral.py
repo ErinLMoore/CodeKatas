@@ -6,19 +6,19 @@ import sys
 class ArabicToRoman(object):
     def __init__(self):
         self.roman_list = ['ↂ','ↁ','M','D','C', 'L', 'X', 'V', 'I']
-        base_value = 10
-        max_repeats_of_value = int(base_value/2)-1
-        self.value_of_highest_numeral = int(base_value ** max_repeats_of_value)
+        self.base_value = 10
+        max_repeats_of_value = int(self.base_value/2)-1
+        self.value_of_highest_numeral = int(self.base_value ** max_repeats_of_value)
         self.values_list = self.calculate_values_list()
 
     def return_value(self, input_int):
         return_val = ""
         for index,numeral in enumerate(self.roman_list):
             current_working_value = self.values_list[index]
-            if input_int/current_working_value is not 0:
-                return_length = int(input_int/current_working_value)
-                return_val += numeral* return_length
-                input_int -= current_working_value* return_length
+            #if input_int/current_working_value is not 0:
+            return_length = int(input_int/current_working_value)
+            return_val += numeral* return_length
+            input_int -= current_working_value* return_length
             subtractive_notation_index_offset=(2 - (index%2))
             subtractive_notation_amount = self.calcuate_subtractive_notation(index, subtractive_notation_index_offset)
             if input_int >= current_working_value - subtractive_notation_amount:
@@ -27,8 +27,7 @@ class ArabicToRoman(object):
         return return_val
 
     def calcuate_subtractive_notation(self,index, subtractive_notation_index_offset):
-
-        divisor =  int(math.ceil(10 ** math.ceil((index+subtractive_notation_index_offset)/2)))
+        divisor =  int(math.ceil(self.base_value ** math.ceil((index+subtractive_notation_index_offset)/2)))
         return self.value_of_highest_numeral/divisor
 
     def calculate_values_list(self):
