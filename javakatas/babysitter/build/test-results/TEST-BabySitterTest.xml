@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="BabySitterTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2016-04-19T14:56:34" hostname="Varan-The-Unbelievable.local" time="0.001">
+<testsuite name="BabySitterTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2016-04-20T13:49:28" hostname="Varan-The-Unbelievable.local" time="0.001">
   <properties/>
-  <testcase name="StartsNoEarlierThan5" classname="BabySitterTest" time="0.001"/>
+  <testcase name="returns_false_if_start_time_before_17" classname="BabySitterTest" time="0.0"/>
+  <testcase name="returns_true_if_start_time_17_or_after" classname="BabySitterTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
