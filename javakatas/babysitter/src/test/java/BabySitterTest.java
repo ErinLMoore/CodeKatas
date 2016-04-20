@@ -14,17 +14,22 @@ import org.junit.*;
      public void setUp(){
           bs = new BabySitter();
      }
-
      @Test
-     public void returns_true_if_start_time_17_or_after() {
-       Boolean expected = true;
-       Boolean result = bs.start_time_evaluator(18);
-       assertEquals(expected, result);
+      public void returns_true_if_start_time_17_or_after() {
+      Boolean expected = true;
+      Boolean result = bs.start_time_evaluator(18);
+      assertEquals(expected, result);
      }
      @Test
-     public void returns_false_if_start_time_before_17() {
-       Boolean expected = false;
-       Boolean result = bs.start_time_evaluator(15);
-       assertEquals(expected, result);
+      public void returns_false_if_start_time_before_17() {
+      Boolean expected = false;
+      Boolean result = bs.start_time_evaluator(15);
+      assertEquals(expected, result);
+     }
+     @Test
+      public void returns_true_if_end_time_before_28() {
+      Boolean expected = true;
+      Boolean result = bs.end_time_evaluator(26);
+      assertEquals(expected, result);
      }
 }
