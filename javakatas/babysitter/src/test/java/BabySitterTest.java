@@ -33,21 +33,45 @@ import org.junit.*;
       assertEquals(expected, result);
      }
      @Test
+      public void returns_false_if_end_time_after_28() {
+      Boolean expected = false;
+      Boolean result = bs.end_time_evaluator(29);
+      assertEquals(expected, result);
+     }
+     @Test
       public void gets_paid_12_an_hour_from_start_to_bed() {
-      Integer expected = 60;
-      Integer result = bs.salary_evaluator(17,22, 22);
+      int expected = 60;
+      int result = bs.salary_evaluator(17,22, 22);
       assertEquals(expected, result);
      }
      @Test
       public void gets_paid_8_an_hour_from_bed_to_mid() {
-      Integer expected = 16;
-      Integer result = bs.salary_evaluator(22,22, 24);
+      int expected = 16;
+      int result = bs.salary_evaluator(22,22, 24);
       assertEquals(expected, result);
      }
      @Test
       public void gets_paid_16_an_hour_from_mid_to_end() {
-      Integer expected = 32;
-      Integer result = bs.salary_evaluator(24,24, 2);
+      int expected = 32;
+      int result = bs.salary_evaluator(24,24, 2);
+      assertEquals(expected, result);
+     }
+     @Test
+      public void test_invalid_start_times_return_0_salary() {
+      int expected = 0;
+      int result = bs.salary_evaluator(16,24, 2);
+      assertEquals(expected, result);
+     }
+     @Test
+      public void test_invalid_end_times_return_0_salary() {
+      int expected = 0;
+      int result = bs.salary_evaluator(18,24,5);
+      assertEquals(expected, result);
+     }
+     @Test
+      public void test_salary_end_to_end() {
+      int expected = 100;
+      int result = bs.salary_evaluator(18,23,2);
       assertEquals(expected, result);
      }
 }
