@@ -32,4 +32,10 @@ import org.junit.*;
       Boolean result = bs.end_time_evaluator(26);
       assertEquals(expected, result);
      }
+     @Test
+      public void gets_paid_12_an_hour_from_start_to_bed() {
+      Integer expected = 60;
+      Integer result = bs.salary_evaluator(5,10);
+      assertEquals(expected, result);
+     }
 }
