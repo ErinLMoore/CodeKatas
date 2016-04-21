@@ -1,7 +1,5 @@
 public class BabySitter {
-  public static void main(String[] args){
-    System.out.println("babysitter main class");
-  }
+  
   public int salary_evaluator (int start_time, int bed_time, int end_time){
     int return_int = 0;
     if (end_time<12)
