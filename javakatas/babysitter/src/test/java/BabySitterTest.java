@@ -35,7 +35,19 @@ import org.junit.*;
      @Test
       public void gets_paid_12_an_hour_from_start_to_bed() {
       Integer expected = 60;
-      Integer result = bs.salary_evaluator(5,10);
+      Integer result = bs.salary_evaluator(17,22, 22);
+      assertEquals(expected, result);
+     }
+     @Test
+      public void gets_paid_8_an_hour_from_bed_to_mid() {
+      Integer expected = 16;
+      Integer result = bs.salary_evaluator(22,22, 24);
+      assertEquals(expected, result);
+     }
+     @Test
+      public void gets_paid_16_an_hour_from_mid_to_end() {
+      Integer expected = 32;
+      Integer result = bs.salary_evaluator(24,24, 2);
       assertEquals(expected, result);
      }
 }
