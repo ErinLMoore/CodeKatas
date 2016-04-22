@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="BabySitterTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2016-04-21T18:21:57" hostname="Varan-The-Unbelievable.local" time="0.002">
+<testsuite name="BabySitterTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2016-04-22T14:27:01" hostname="Varan-The-Unbelievable.local" time="0.003">
   <properties/>
-  <testcase name="test_salary_end_to_end" classname="BabySitterTest" time="0.0"/>
+  <testcase name="test_salary_end_to_end" classname="BabySitterTest" time="0.001"/>
   <testcase name="returns_true_if_end_time_before_28" classname="BabySitterTest" time="0.0"/>
   <testcase name="returns_false_if_end_time_after_28" classname="BabySitterTest" time="0.0"/>
   <testcase name="test_invalid_end_times_return_0_salary" classname="BabySitterTest" time="0.0"/>
