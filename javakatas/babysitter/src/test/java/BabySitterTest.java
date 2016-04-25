@@ -40,8 +40,8 @@ import org.junit.*;
      }
      @Test
       public void gets_paid_12_an_hour_from_start_to_bed() {
-      int expected = 60;
-      int result = bs.calculate_salary(17,22, 22);
+      int expected = 76;
+      int result = bs.calculate_salary(17,22, 24);
       assertEquals(expected, result);
      }
      @Test
