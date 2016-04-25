@@ -2,8 +2,6 @@ import java.util.stream.IntStream;
 
 public class BabySitter {
 
-  //instead of for loop, use intersecional arrays or buckets or something i forget
-
   private int startToBedWage = 12;
   private int bedToMidWage = 8;
   private int midToEndWage = 16;
@@ -25,9 +23,9 @@ public class BabySitter {
     }
 
   public int calculateSalary(int startTime, int bedTime, int endTime){
-  return IntStream.of((bedTime - startTime)*startToBedWage,
-                            (midnight - bedTime)*bedToMidWage,
-                            (endTime - midnight)*midToEndWage).sum();
+    return IntStream.of((bedTime - startTime)*startToBedWage,
+                        (midnight - bedTime)*bedToMidWage,
+                        (endTime - midnight)*midToEndWage).sum();
     }
 
   public Boolean startTimeEvaluator (int startTime){
