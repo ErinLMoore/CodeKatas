@@ -2,6 +2,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
+import org.junit.*;
 
 /**
  * Created by erinmoore on 3/15/16.

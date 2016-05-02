@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="test.BabySitterTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2016-04-18T18:37:53" hostname="Varan-The-Unbelievable.local" time="0.004">
+  <properties/>
+  <testcase name="if4AmIsGivenTheMethodReturns4" classname="test.BabySitterTest" time="0.002"/>
+  <testcase name="if5AmIsGivenTheMethodReturns13" classname="test.BabySitterTest" time="0.0"/>
+  <testcase name="salaryMethodCheck" classname="test.BabySitterTest" time="0.0"/>
+  <testcase name="if5PmIsGivenTheMethodReturns17" classname="test.BabySitterTest" time="0.0"/>
+  <testcase name="if4PmIsGivenTheMethodReturns13" classname="test.BabySitterTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

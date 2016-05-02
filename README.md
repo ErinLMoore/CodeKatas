@@ -1,2 +1,0 @@
-# CodeKatas
-code katas
