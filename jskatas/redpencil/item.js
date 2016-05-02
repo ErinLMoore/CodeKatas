@@ -1,3 +1,3 @@
-function item_exists(input){
-  return input;
+function Item(dateoflastchange){
+  this.dateoflastchange = dateoflastchange;
 }

@@ -48,8 +48,9 @@ assert.equal(result, expected);
 assert.equal(result, expected);
 });
 
-QUnit.test("item exists?", function(assert) {
-	var expected = 1
-	var result = item_exists(1);
+QUnit.test("30 days or more from last change", function(assert) {
+	var item = new Item(300);
+	var expected = true
+	var result = price_has_been_stable_30_days(item);
 	assert.equal(result, expected);
 	});
