@@ -3,6 +3,7 @@ max_promo_length = 30
 min_discount_percent = .05
 max_discount_percent = .3
 price_stability_length_required = 30
+todays_date = 330
 
 function discount_in_right_range(oldprice, newprice){
   return discount_not_too_low(oldprice, newprice)&&
@@ -25,4 +26,8 @@ function  discount_not_too_low(oldprice, newprice) {
 function discount_not_too_high(oldprice, newprice){
   var result = ((oldprice*max_discount_percent)<=newprice);
   return result;
+}
+
+function price_has_been_stable_30_days(item){
+  return ((todays_date - item.dateoflastchange)>=30)
 }
