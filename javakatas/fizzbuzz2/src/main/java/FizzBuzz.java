@@ -2,6 +2,9 @@
  * Created by erinmoore on 3/15/16.
  */
 public class FizzBuzz {
+  public static void main(String[] args){
+    System.out.println("pretend this fizzbuzzes");
+  }
     public String fizzbuzzer (int input){
         String return_value = "";
         if (input%3 == 0){
