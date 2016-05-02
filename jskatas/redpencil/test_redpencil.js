@@ -30,27 +30,28 @@ QUnit.test("discount in right range", function(assert) {
 });
 
 QUnit.test("price_stable_for_30_days", function(assert) {
-	var expected = true
-	var result = price_stable_long_enough(311, 350);
+	last_change_date = new Date(2016,2,10);
+	item = new Item(last_change_date);
+	var expected = true;
+	var result = price_stable_long_enough(item);
 	assert.equal(result, expected);
-	var expected = false
-	var result = price_stable_long_enough(311, 312);
+
+
+	last_change_date = new Date(2016,4,1);
+	item = new Item(last_change_date);
+	var expected = false;
+	var result = price_stable_long_enough(item);
 	assert.equal(result, expected);
 });
 
 
 QUnit.test("promo length 30 days or less", function(assert) {
+	enddate = new Date(2016,4,16);
 	var expected = true
-	var result = promo_length_valid(311, 312);
+	var result = promo_length_valid(enddate);
 assert.equal(result, expected);
+enddate = new Date(2016,5,16);
 	var expected = false
-	var result = promo_length_valid(311, 350);
+	var result = promo_length_valid(enddate);
 assert.equal(result, expected);
 });
-
-QUnit.test("30 days or more from last change", function(assert) {
-	var item = new Item(300);
-	var expected = true
-	var result = price_has_been_stable_30_days(item);
-	assert.equal(result, expected);
-	});

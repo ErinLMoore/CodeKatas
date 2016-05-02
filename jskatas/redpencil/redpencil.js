@@ -3,19 +3,22 @@ max_promo_length = 30
 min_discount_percent = .05
 max_discount_percent = .3
 price_stability_length_required = 30
-todays_date = 330
+date_offset = (24*60*60*1000) * price_stability_length_required
+todays_date = new Date(2016,4,15)
 
 function discount_in_right_range(oldprice, newprice){
   return discount_not_too_low(oldprice, newprice)&&
           discount_not_too_high(oldprice, newprice);
 }
 
-function promo_length_valid(startdate,enddate){
-  return ((enddate-startdate) <=max_promo_length);
+function promo_length_valid(startdate){
+  diff = Math.abs(todays_date-startdate)
+  return (diff <=date_offset);
 }
 
-function price_stable_long_enough(lastchangedate, newchangedate){
-    return (newchangedate-lastchangedate >=price_stability_length_required);
+function price_stable_long_enough(item){
+    diff = Math.abs(todays_date-item.dateoflastchange)
+    return (diff >=date_offset);
 }
 
 function  discount_not_too_low(oldprice, newprice) {
