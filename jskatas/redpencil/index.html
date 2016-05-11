@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <title>Red Pencil</title>
+    <script type="text/javascript" language="javascript" src="business_rules.js">
+    </script>
+
+</head>
+
+<body>
+  <FORM ACTION="#" NAME="convert">
+  Enter Item
+  <INPUT TYPE=TEXT NAME="item">
+<BR><BR>
+  Enter New Price
+  <INPUT TYPE=TEXT NAME="newprice"
+      ONKEYUP=" document.convert.result.value = validate_promo(document.convert.ins.value)" >
+  <BR><BR>
+
+  <INPUT TYPE=TEXT NAME="result" DISABLED>
+  </FORM>
+
+</body>
+</html>

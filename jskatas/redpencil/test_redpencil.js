@@ -31,16 +31,14 @@ QUnit.test("discount in right range", function(assert) {
 
 QUnit.test("price_stable_for_30_days", function(assert) {
 	last_change_date = new Date(2016,2,10);
-	item = new Item(last_change_date);
 	var expected = true;
-	var result = price_stable_long_enough(item);
+	var result = price_stable_long_enough(last_change_date);
 	assert.equal(result, expected);
 
 
 	last_change_date = new Date(2016,4,1);
-	item = new Item(last_change_date);
 	var expected = false;
-	var result = price_stable_long_enough(item);
+	var result = price_stable_long_enough(last_change_date );
 	assert.equal(result, expected);
 });
 
@@ -51,7 +49,21 @@ QUnit.test("promo length 30 days or less", function(assert) {
 	var result = promo_length_valid(enddate);
 assert.equal(result, expected);
 enddate = new Date(2016,5,16);
-	var expected = false
+	var expected = false;
 	var result = promo_length_valid(enddate);
 assert.equal(result, expected);
+});
+
+QUnit.test("validate_promo_end_to_end", function(assert) {
+	item = new Item(new Date(2016,2,1), 1)
+	promo = new Promo(new Date(2016,4,30), .75)
+	var expected = true;
+	var result = validate_promo(promo, item);
+	assert.equal(result, expected);
+
+	item = new Item(new Date(2016,4,1), 1)
+	promo = new Promo(new Date(2016,4,30), .95)
+	var expected = false;
+	var result = validate_promo(promo, item);
+	assert.equal(result, expected);
 });
