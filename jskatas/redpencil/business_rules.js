@@ -4,15 +4,15 @@ min_discount_percent = .05
 max_discount_percent = .3
 price_stability_length_required = 30
 date_offset = (24*60*60*1000) * price_stability_length_required
-todays_date = new Date(2016,4,15)
+todays_date = new Date()
 
-function validate_promo(promo, item){
-  var is_valid =discount_in_right_range(item.currentprice, promo.newprice) &&
+function validate_promo(promo){
+  this.item = promo.item
+  var is_valid =discount_in_right_range(this.item.currentprice, promo.newprice) &&
     promo_length_valid(promo.enddate)&&
-    price_stable_long_enough(item.dateoflastchange);
-    item.underredpencil = is_valid
+    price_stable_long_enough(this.item.dateoflastchange);
+    this.item.underredpencil = is_valid
     return is_valid
-
 }
 
 function discount_in_right_range(oldprice, newprice){
