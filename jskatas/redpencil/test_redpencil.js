@@ -1,3 +1,4 @@
+todays_date = new Date()
 
 QUnit.test("discount must be at least 5% to start promo", function(assert) {
 	var expected = true;
@@ -30,40 +31,44 @@ QUnit.test("discount in right range", function(assert) {
 });
 
 QUnit.test("price_stable_for_30_days", function(assert) {
-	last_change_date = new Date(2016,2,10);
+	past_date = new Date()
+	past_date.setMonth( todays_date.getMonth()-3)
 	var expected = true;
-	var result = price_stable_long_enough(last_change_date);
+	var result = price_stable_long_enough(past_date);
 	assert.equal(result, expected);
 
-
-	last_change_date = new Date(2016,4,1);
+	past_date = new Date()
+	past_date.setMonth( todays_date.getMonth()-1)
 	var expected = false;
-	var result = price_stable_long_enough(last_change_date );
+	var result = price_stable_long_enough(past_date );
 	assert.equal(result, expected);
 });
 
 
 QUnit.test("promo length 30 days or less", function(assert) {
-	enddate = new Date(2016,4,16);
+	future_date = new Date();
+	future_date.setDate =  todays_date.getDate()+15;
 	var expected = true
-	var result = promo_length_valid(enddate);
+	var result = promo_length_valid(future_date);
 assert.equal(result, expected);
-enddate = new Date(2016,5,16);
+
+ future_date = new Date(2016,6,30);
+ //future_date.setTime=  todays_date.getTime +(32*(24*60*60*1000)) ;
 	var expected = false;
-	var result = promo_length_valid(enddate);
+	var result = promo_length_valid(future_date);
 assert.equal(result, expected);
 });
 
 QUnit.test("validate_promo_end_to_end", function(assert) {
-	item = new Item(new Date(2016,2,1), 1)
-	promo = new Promo(new Date(2016,4,30), .75)
+	qitem = new Item(new Date(2016,2,1), 1)
+	qpromo = new Promo(new Date(2016,4,30), .75, qitem)
 	var expected = true;
-	var result = validate_promo(promo, item);
+	var result = validate_promo(qpromo);
 	assert.equal(result, expected);
 
-	item = new Item(new Date(2016,4,1), 1)
-	promo = new Promo(new Date(2016,4,30), .95)
+	qitem = new Item(new Date(2016,4,1), 1)
+	qpromo = new Promo(new Date(2016,4,30), .95, qitem)
 	var expected = false;
-	var result = validate_promo(promo, item);
+	var result = validate_promo(qpromo);
 	assert.equal(result, expected);
 });
