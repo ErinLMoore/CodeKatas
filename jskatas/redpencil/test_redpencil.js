@@ -32,13 +32,13 @@ QUnit.test("discount in right range", function(assert) {
 
 QUnit.test("price_stable_for_30_days", function(assert) {
 	past_date = new Date()
-	past_date.setMonth( todays_date.getMonth()-3)
+	past_date.setDate( todays_date.getDate()-40)
 	var expected = true;
 	var result = price_stable_long_enough(past_date);
 	assert.equal(result, expected);
 
 	past_date = new Date()
-	past_date.setMonth( todays_date.getMonth()-1)
+	past_date.setDate( todays_date.getDate()-2)
 	var expected = false;
 	var result = price_stable_long_enough(past_date );
 	assert.equal(result, expected);
