@@ -26,8 +26,13 @@ function promo_length_valid(enddate){
 }
 
 function price_stable_long_enough(dateoflastchange){
-    diff = Math.abs(todays_date-dateoflastchange)
+    today_ms = todays_date.getTime();
+    last_change_ms = dateoflastchange.getTime();
+    var diff = Math.abs(today_ms-last_change_ms);
+    console.log(diff);
     return (diff >=date_offset);
+    //diff = Math.abs(todays_date-dateoflastchange)
+    //return (diff >=date_offset);
 }
 
 function  discount_not_too_low(oldprice, newprice) {
