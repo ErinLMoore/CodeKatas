@@ -1,6 +1,4 @@
-function Promo(enddate, newprice, item){
+function Promo(enddate, newprice){
   this.enddate = enddate;
   this.newprice = newprice;
-  this.item = item;
-  console.log(this.item);
 }

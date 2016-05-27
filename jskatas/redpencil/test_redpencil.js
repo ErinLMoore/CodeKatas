@@ -1,4 +1,9 @@
 todays_date = new Date()
+valid_promo_date = new Date()
+valid_promo_date.setDate( todays_date.getDate()+15);
+invalid_promo_date = new Date()
+invalid_promo_date.setDate( todays_date.getDate()+35);
+
 
 QUnit.test("discount must be at least 5% to start promo", function(assert) {
 	var expected = true;
@@ -30,6 +35,20 @@ QUnit.test("discount in right range", function(assert) {
 	assert.equal(result, expected);
 });
 
+QUnit.test("promo length 30 days or less", function(assert) {
+	future_date = new Date();
+	future_date.setDate =  todays_date.getDate()+15;
+	var expected = true
+	var result = promo_length_valid(valid_promo_date);
+assert.equal(result, expected);
+
+ future_date = new Date(2016,6,30);
+ future_date.setDate =  todays_date.getDate()+35;
+	var expected = false;
+	var result = promo_length_valid(invalid_promo_date);
+assert.equal(result, expected);
+});
+
 QUnit.test("price_stable_for_30_days", function(assert) {
 	past_date = new Date()
 	past_date.setDate( todays_date.getDate()-40)
@@ -45,30 +64,51 @@ QUnit.test("price_stable_for_30_days", function(assert) {
 });
 
 
-QUnit.test("promo length 30 days or less", function(assert) {
-	future_date = new Date();
-	future_date.setDate =  todays_date.getDate()+15;
-	var expected = true
-	var result = promo_length_valid(future_date);
-assert.equal(result, expected);
-
- future_date = new Date(2016,6,30);
- //future_date.setTime=  todays_date.getTime +(32*(24*60*60*1000)) ;
-	var expected = false;
-	var result = promo_length_valid(future_date);
-assert.equal(result, expected);
-});
-
 QUnit.test("validate_promo_end_to_end", function(assert) {
-	qitem = new Item(new Date(2016,2,1), 1)
-	qpromo = new Promo(new Date(2016,4,30), .75, qitem)
+	qitem = new Item(new Date(todays_date.getDate()-45), 1)
+	qpromo = new Promo(valid_promo_date, .75)
 	var expected = true;
-	var result = validate_promo(qpromo);
+	var result = validate_promo(qpromo, qitem);
 	assert.equal(result, expected);
 
-	qitem = new Item(new Date(2016,4,1), 1)
-	qpromo = new Promo(new Date(2016,4,30), .95, qitem)
+	qitem = new Item(new Date(todays_date.getDate()-15), 1)
+	qpromo = new Promo(invalid_promo_date, .95)
 	var expected = false;
-	var result = validate_promo(qpromo);
+	var result = validate_promo(qpromo, qitem);
+	assert.equal(result, expected);
+});
+
+QUnit.test("store takes in promo and adds it", function(assert){
+	qstore = new Store()
+	qpromo = new Promo(new Date(2016,4,30), .75)
+	qstore.add_promo(qpromo, qstore.items[0]);
+	var expected = 1;
+	var result = qstore.promos.length;
+	assert.equal(result, expected);
+
+	qstore = new Store()
+	qpromo = new Promo(new Date(2016,6,30), .95)
+	qstore.add_promo(qpromo, qstore.items[0]);
+	var expected = 0;
+	var result = qstore.promos.length;
+	assert.equal(result, expected);
+});
+
+QUnit.test("promo changes item to under red pencil", function(assert){
+	qstore = new Store()
+	qpromo = new Promo(valid_promo_date, .75)
+	qstore.add_promo(qpromo, qstore.items[0]);
+	var expected = true;
+	var result = qstore.items[0].underredpencil;
+	assert.equal(result, expected);
+});
+
+QUnit.test("if item under red pencil do nothing", function(assert){
+	qstore = new Store()
+	qpromo = new Promo(valid_promo_date, .75)
+	qstore.items[0].underredpencil = true;
+	qstore.add_promo(qpromo, qstore.items[0]);
+	var expected = 0;
+	var result = qstore.promos.length;
 	assert.equal(result, expected);
 });
