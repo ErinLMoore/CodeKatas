@@ -1,6 +1,6 @@
 import sys
 
-class Fizzbuzz(object):
+class Fizzbuzz():
 
     def fizzbuzzer(self, input_int):
         input = input_int

@@ -6,14 +6,32 @@ price_stability_length_required = 30
 date_offset = (24*60*60*1000) * price_stability_length_required
 todays_date = new Date()
 
-function validate_promo(promo){
-  this.item = promo.item
-  var is_valid =discount_in_right_range(this.item.currentprice, promo.newprice) &&
+function Store(){
+item0 = new Item(new Date(todays_date.getDate()-45), 1)
+item1 =	new Item(new Date(todays_date.getDate()-15), 1)
+this.items = [];
+this.items.push(item0)
+this.items.push(item1)
+this.promos = [];
+
+this.add_promo = function(promo, item) {
+  if (validate_promo(promo, item)){
+  this.promos.push(promo);
+  }
+  }
+}
+
+function validate_promo(promo, item){
+  this.item = item
+  var is_valid =discount_in_right_range(item.currentprice, promo.newprice) &&
     promo_length_valid(promo.enddate)&&
-    price_stable_long_enough(this.item.dateoflastchange);
-    this.item.underredpencil = is_valid
+    price_stable_long_enough(item.dateoflastchange)&!
+    item.underredpencil                                                                              ;
+    item.underredpencil = is_valid;
+    item.dateoflastchange = todays_date;
     return is_valid
 }
+
 
 function discount_in_right_range(oldprice, newprice){
   return discount_not_too_low(oldprice, newprice)&&
@@ -21,18 +39,13 @@ function discount_in_right_range(oldprice, newprice){
 }
 
 function promo_length_valid(enddate){
-  diff = Math.abs(todays_date-enddate)
+  var diff = time_difference_in_days(todays_date, enddate);
   return (diff <=date_offset);
 }
 
 function price_stable_long_enough(dateoflastchange){
-    today_ms = todays_date.getTime();
-    last_change_ms = dateoflastchange.getTime();
-    var diff = Math.abs(today_ms-last_change_ms);
-    console.log(diff);
+    var diff = time_difference_in_days(todays_date, dateoflastchange);
     return (diff >=date_offset);
-    //diff = Math.abs(todays_date-dateoflastchange)
-    //return (diff >=date_offset);
 }
 
 function  discount_not_too_low(oldprice, newprice) {
@@ -43,4 +56,11 @@ function  discount_not_too_low(oldprice, newprice) {
 function discount_not_too_high(oldprice, newprice){
   var result = ((oldprice*max_discount_percent)<=newprice);
   return result;
+}
+
+function time_difference_in_days(time1, time2){
+  time1_ms = time1.getTime();
+  time2_ms = time2.getTime();
+  return  Math.abs(time1_ms-time2_ms);
+
 }

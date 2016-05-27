@@ -7,8 +7,9 @@ class testFizzbuzz(unittest.TestCase):
         self.fizzbuzz = Fizzbuzz()
 
     def test_returns_one_if_given_one(self):
-        self.assertEqual(1, Fizzbuzz.fizzbuzzer(
-            self.fizzbuzz, 1))
+        expected = 1
+        actual = Fizzbuzz.fizzbuzzer(self.fizzbuzz, 1)
+        self.assertEqual(expected, actual)
 
     def test_returns_two_if_given_two(self):
         self.assertEqual(2, Fizzbuzz.fizzbuzzer(
