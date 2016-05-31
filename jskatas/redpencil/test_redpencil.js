@@ -112,3 +112,21 @@ QUnit.test("if item under red pencil do nothing", function(assert){
 	var result = qstore.promos.length;
 	assert.equal(result, expected);
 });
+
+QUnit.test("promo changes item price", function(assert){
+	qstore = new Store()
+	qpromo = new Promo(valid_promo_date, .75)
+	qstore.add_promo(qpromo, qstore.items[0]);
+	var expected = .75;
+	var result = qstore.items[0].currentprice;
+	assert.equal(result, expected);
+});
+
+QUnit.test("promo remembers item and old price", function(assert){
+	qstore = new Store()
+	qpromo = new Promo(new Date(2016,4,30), .75)
+	qstore.add_promo(qpromo, qstore.items[0]);
+	var expected = 1;
+	var result = qstore.promos[0].originalprice;
+	assert.equal(result, expected);
+});

@@ -16,8 +16,12 @@ this.promos = [];
 
 this.add_promo = function(promo, item) {
   if (validate_promo(promo, item)){
-  this.promos.push(promo);
-  }
+    item.underredpencil = true;
+    update_promo(item, promo);
+    change_item_price(item, promo.newprice);
+    item.dateoflastchange = todays_date;
+    this.promos.push(promo);
+    }
   }
 }
 
@@ -27,12 +31,21 @@ function validate_promo(promo, item){
     promo_length_valid(promo.enddate)&&
     price_stable_long_enough(item.dateoflastchange)&!
     item.underredpencil                                                                              ;
-    item.underredpencil = is_valid;
-    item.dateoflastchange = todays_date;
+
     return is_valid
 }
 
+function change_item_price(item, newprice){
+  if( newprice > item.currentprice){
+    item.underredpencil = false;
+  }
+  item.currentprice = newprice;
+}
 
+function update_promo(item, promo){
+  promo.item = item;
+  promo.originalprice = item.currentprice;
+}
 function discount_in_right_range(oldprice, newprice){
   return discount_not_too_low(oldprice, newprice)&&
           discount_not_too_high(oldprice, newprice);
