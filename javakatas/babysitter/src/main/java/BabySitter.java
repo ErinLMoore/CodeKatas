@@ -29,14 +29,14 @@ public class BabySitter {
     }
 
   public Boolean startTimeEvaluator (int startTime){
-    if (startTime >=minimum_startTime)
+    if (startTime >=minimumStartTime)
       {return true;}
     else
       {return false;}
     }
 
   public Boolean endTimeEvaluator (int endTime){
-    if (endTime <=maximum_endTime)
+    if (endTime <=maximumEndTime)
       {return true;}
     else
       {return false;}
