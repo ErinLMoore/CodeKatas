@@ -2,16 +2,16 @@ def add(argument_string):
 
     if(argument_string == ""):
         return "0"
-    return str(sum([int(i) for i in argument_string.replace("\n", ",").split(",")]))
 
-    """
-    new_string = argument_string.replace("\n", ",")
-    string_list = new_string.split(",")
-    return_string = ""
-    sum = 0
+    delimited_string = ""
 
-    for i in string_list:
-        sum += int(i)
+    if(argument_string[0:1] == "\\"):
+        delimited_string = argument_string.split("\n", 2)[1]
+        custom_delimiter = "@"
+    else:
+        delimited_string = argument_string
+        custom_delimiter = ","
 
-    return str(sum)
-    """
+    string_list = delimited_string.replace(custom_delimiter, ",").replace("\n", ",").split(",")
+
+    return str(sum([int(i) for i in string_list]))
