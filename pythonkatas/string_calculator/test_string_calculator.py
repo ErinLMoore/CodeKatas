@@ -37,3 +37,8 @@ class testStringCalculator(unittest.TestCase):
         expected = "2"
         actual = add("1\n1")
         self.assertEqual(expected,actual)
+
+    def test_can_use_custom_chars_to_delimit(self):
+        expected = "2"
+        actual = add("\\@\n1@1")
+        self.assertEqual(expected,actual)
