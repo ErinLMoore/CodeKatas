@@ -7,3 +7,8 @@ class testStringCalculator(unittest.TestCase):
         expected = "0"
         actual = add("")
         self.assertEqual(expected, actual)
+
+    def test_if_given_a_two_returns_a_two(self):
+        expected = "2"
+        actual = add("2")
+        self.assertEqual(expected, actual)
