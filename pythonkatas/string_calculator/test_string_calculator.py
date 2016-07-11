@@ -52,3 +52,8 @@ class testStringCalculator(unittest.TestCase):
         expected = "negatives not allowed: -2"
         actual = add("1,-2")
         self.assertEqual(expected,actual)
+
+    def test_numbers_larger_than_1000_are_ignored(self):
+        expected = "2"
+        actual = add("2,1001")
+        self.assertEqual(expected,actual)
