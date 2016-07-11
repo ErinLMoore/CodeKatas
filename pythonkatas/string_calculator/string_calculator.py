@@ -6,4 +6,4 @@ def add(argument_string):
         else:
             return argument_string
     else:
-        return "2"
+        return  str(int(string_list[0]) + int(string_list[1]))

@@ -22,3 +22,8 @@ class testStringCalculator(unittest.TestCase):
         expected = "2"
         actual = add("1,1")
         self.assertEqual(expected,actual)
+
+    def test_adds_two_strings_returns_sum(self):
+        expected = "807"
+        actual = add("747,60")
+        self.assertEqual(expected,actual)
