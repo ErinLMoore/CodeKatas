@@ -12,3 +12,8 @@ class testStringCalculator(unittest.TestCase):
         expected = "2"
         actual = add("2")
         self.assertEqual(expected, actual)
+
+    def test_if_given_a_four_returns_a_four(self):
+        expected = "4"
+        actual = add("4")
+        self.assertEqual(expected, actual)
