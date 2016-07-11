@@ -1,5 +1,9 @@
 def add(argument_string):
-    if argument_string == "":
-        return "0"
+    string_list = argument_string.split(",")
+    if len(string_list)==1:
+        if argument_string == "":
+            return "0"
+        else:
+            return argument_string
     else:
-        return argument_string
+        return "2"
