@@ -47,3 +47,8 @@ class testStringCalculator(unittest.TestCase):
         expected = "negatives not allowed: -2"
         actual = add("-2")
         self.assertEqual(expected,actual)
+
+    def test_negatives_and_positive_mix_returns_negatives(self):
+        expected = "negatives not allowed: -2"
+        actual = add("1,-2")
+        self.assertEqual(expected,actual)
