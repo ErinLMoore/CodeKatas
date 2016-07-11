@@ -27,3 +27,13 @@ class testStringCalculator(unittest.TestCase):
         expected = "807"
         actual = add("747,60")
         self.assertEqual(expected,actual)
+
+    def test_adds_three_strings_returns_sum(self):
+        expected = "809"
+        actual = add("747,60,2")
+        self.assertEqual(expected,actual)
+
+    def test_can_use_newlines_to_delimit(self):
+        expected = "2"
+        actual = add("1\n1")
+        self.assertEqual(expected,actual)
