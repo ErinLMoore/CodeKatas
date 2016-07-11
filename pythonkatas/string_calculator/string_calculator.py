@@ -11,7 +11,8 @@ def add(argument_string):
     else:
         delimited_string = argument_string
         custom_delimiter = ","
-
     string_list = delimited_string.replace(custom_delimiter, ",").replace("\n", ",").split(",")
-
+    negatives_list = [i for i in string_list if "-" in i]
+    if len(negatives_list)>0:
+        return "negatives not allowed: " + " ".join(negatives_list)
     return str(sum([int(i) for i in string_list]))

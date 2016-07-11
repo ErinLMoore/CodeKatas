@@ -42,3 +42,8 @@ class testStringCalculator(unittest.TestCase):
         expected = "2"
         actual = add("\\@\n1@1")
         self.assertEqual(expected,actual)
+
+    def test_using_negatives_returns_exception_string(self):
+        expected = "negatives not allowed: -2"
+        actual = add("-2")
+        self.assertEqual(expected,actual)
