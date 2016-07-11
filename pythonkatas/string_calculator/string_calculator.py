@@ -1,4 +1,7 @@
-def add(argument_string):
+def log(results):
+    print results
+
+def add(argument_string, log_function = log):
 
     if(argument_string == ""):
         return "0"
@@ -18,5 +21,6 @@ def add(argument_string):
         return "negatives not allowed: " + " ".join(negatives_list)
 
     string_list = [i for i in string_list if int(i) <= 1000]
-
-    return str(sum([int(i) for i in string_list]))
+    results = str(sum([int(i) for i in string_list]))
+    log_function(results)
+    return  results

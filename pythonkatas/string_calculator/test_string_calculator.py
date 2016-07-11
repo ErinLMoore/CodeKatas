@@ -1,5 +1,6 @@
 import unittest
-from string_calculator import add
+from mock import patch, Mock
+from string_calculator import *
 
 class testStringCalculator(unittest.TestCase):
 
@@ -57,3 +58,8 @@ class testStringCalculator(unittest.TestCase):
         expected = "2"
         actual = add("2,1001")
         self.assertEqual(expected,actual)
+
+    def test_when_add_is_called_logger_is_called_with_add_result(self):
+        mocklog = Mock(log)
+        add("1,1", mocklog)
+        self.assertEqual(True, mocklog.called)
