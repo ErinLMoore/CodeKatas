@@ -1,6 +1,8 @@
 import unittest
-from mock import patch, Mock
-from string_calculator import *
+import mock
+import string_calculator
+from string_calculator import add
+from log import log
 
 class testStringCalculator(unittest.TestCase):
 
@@ -59,7 +61,18 @@ class testStringCalculator(unittest.TestCase):
         actual = add("2,1001")
         self.assertEqual(expected,actual)
 
-    def test_when_add_is_called_logger_is_called_with_add_result(self):
-        mocklog = Mock(log)
-        add("1,1", mocklog)
-        self.assertEqual(True, mocklog.called)
+    def mocklog(results):
+        print "a mocked log" + ' ' +results
+
+    @mock.patch('string_calculator.log', side_effect=mocklog)
+    def test_when_add_is_called_logger_is_called_with_add_result(self, log_function):
+        add("1,1")
+        string_calculator.log.assert_called_with("2")
+
+    def mockwrite(results):
+        pass
+
+    @mock.patch('__builtin__.open')
+    def test_log_writes_to_file(self, open_mock):
+        log("2")
+        assert open_mock.called

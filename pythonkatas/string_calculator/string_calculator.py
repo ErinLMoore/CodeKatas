@@ -1,7 +1,5 @@
-def log(results):
-    print results
-
-def add(argument_string, log_function = log):
+from log import log
+def add(argument_string):
 
     if(argument_string == ""):
         return "0"
@@ -22,5 +20,5 @@ def add(argument_string, log_function = log):
 
     string_list = [i for i in string_list if int(i) <= 1000]
     results = str(sum([int(i) for i in string_list]))
-    log_function(results)
+    log(results)
     return  results
