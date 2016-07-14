@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 class Fizzbuzz
   def fizzbuzzer(input_int)
   return_value = ""
@@ -14,5 +16,5 @@ class Fizzbuzz
 end
 end
 
-#add .self to fuzzbuzzer def to make runnable from command line
-#puts Fizzbuzz.fizzbuzzer(ARGV[0])
+afizzbuzz =  Fizzbuzz.new
+puts afizzbuzz.fizzbuzzer(ARGV[0])

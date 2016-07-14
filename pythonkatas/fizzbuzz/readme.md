@@ -10,4 +10,4 @@ python -m unittest fizzbuzztest
 
 local alias to create github repo- createrepo [reponame]
 git remote add origin git@github.com:username/reponame.git
-git push --set-upstream origin master
+git push --set-upstream origin master  
