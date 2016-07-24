@@ -9,6 +9,11 @@ class testPrimeFactors(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     def test_returns_a_two_if_given_two(self):
-        expected = [2]
+        expected = [1,2]
         actual = primeFactors(2)
+        self.assertEqual(expected, actual)
+
+    def test_returns_a_two_if_given_four(self):
+        expected = [1,2,4]
+        actual = primeFactors(4)
         self.assertEqual(expected, actual)
