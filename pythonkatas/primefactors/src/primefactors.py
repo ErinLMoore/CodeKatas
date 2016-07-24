@@ -1,6 +1,7 @@
 def primeFactors(argint):
-    returnlist = [argint]
-    for i in range(1,argint):
+
+    for i in xrange(2, argint):
         if argint % i == 0:
-            returnlist.append(i)
-    return sorted(returnlist)
+            return [i] + primeFactors(argint/i)
+
+    return [argint]
