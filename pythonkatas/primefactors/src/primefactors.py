@@ -1,2 +1,2 @@
 def primeFactors(argint):
-    return 1
+    return [argint]

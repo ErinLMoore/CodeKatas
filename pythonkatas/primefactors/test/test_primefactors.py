@@ -3,7 +3,12 @@ from src.primefactors import primeFactors
 
 class testPrimeFactors(unittest.TestCase):
 
-    def test_returns_one_if_given_one(self):
-        expected = 1
+    def test_returns_a_one_if_given_one(self):
+        expected = [1]
         actual = primeFactors(1)
+        self.assertEqual(expected, actual)
+
+    def test_returns_a_two_if_given_two(self):
+        expected = [2]
+        actual = primeFactors(2)
         self.assertEqual(expected, actual)
