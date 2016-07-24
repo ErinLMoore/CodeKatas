@@ -27,3 +27,8 @@ class testPrimeFactors(unittest.TestCase):
         expected = [2,2,5]
         actual = primeFactors(20)
         self.assertEqual(expected, actual)
+
+    def test_returns_correctly_for_a_hundred(self):
+        expected = [2,2,5,5]
+        actual = primeFactors(100)
+        self.assertEqual(expected, actual)

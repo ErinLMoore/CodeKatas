@@ -7,7 +7,6 @@ python fizzbuzz.py arg
 python -m unittest fizzbuzztest
 
 #some notes on adding a remote origin
-#new commit
 
 local alias to create github repo- createrepo [reponame]
 git remote add origin git@github.com:username/reponame.git
