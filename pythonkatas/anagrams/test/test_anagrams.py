@@ -1,9 +1,13 @@
 import unittest
-from src.anagrams import findAnagrams
+from src.anagrams import compareWords
 
 class testAnagrams(unittest.TestCase):
 
-    def test_findAnagrams(self):
-        expected = 1
-        actual = findAnagrams()
+    def test_AnagramsAreCompared(self):
+        expected = True
+        actual = compareWords("kinship", "pinkish")
+        self.assertEqual(expected, actual)
+
+        expected = False
+        actual = compareWords("kinship", "ponkish")
         self.assertEqual(expected, actual)
