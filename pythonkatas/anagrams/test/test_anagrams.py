@@ -1,5 +1,5 @@
 import unittest
-from src.anagrams import compareWords
+from src.anagrams import *
 
 class testAnagrams(unittest.TestCase):
 
@@ -10,4 +10,9 @@ class testAnagrams(unittest.TestCase):
 
         expected = False
         actual = compareWords("kinship", "ponkish")
+        self.assertEqual(expected, actual)
+
+    def test_AnagramFoundInList(self):
+        expected = 1
+        actual = len(findWordsInList("kinship",["pinkish", "ponkish"]))
         self.assertEqual(expected, actual)
