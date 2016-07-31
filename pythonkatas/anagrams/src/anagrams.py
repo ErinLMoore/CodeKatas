@@ -1,19 +1,21 @@
-def compareWords(word1, word2):
-    word1 =''.join(sorted(word1))
-    word2 =''.join(sorted(word2))
-    return word1 == word2
 
-def findWordsInList(searchword, searchlist):
-    returnlist = [i for i in searchlist if compareWords(searchword, i) == True]
-    return returnlist
+def parseWords(word):
+    returnword = word.lower()
+    returnword = returnword.replace(" ", "")
+    returnword = returnword.replace("'", "")
+    return returnword
 
-def checkWordLength(searchword, searchlist):
-    returnlist = [i for i in searchlist if len(i) == len(searchword)]
-    return returnlist
+def load_words(filename):
+    with open(filename) as f:
+        for line in f:
+            yield line.rstrip()
 
-def parseWordsInList(wordlist):
-    returnlist = [i.lower() for i in wordlist]
-    returnlist = [i.replace(" ", "") for i in returnlist]
-    returnlist = [i.replace("'", "") for i in returnlist]
-
+def findAnagramsInList(wordlist):
+    from collections import defaultdict
+    anagram_dict = defaultdict(list)
+    returnlist = []
+    for word in wordlist:
+        key = "".join(sorted(parseWords(word)))
+        anagram_dict[key].append(word)
+    returnlist = [anagrams for key, anagrams in anagram_dict.iteritems() if len(anagrams) > 1]
     return returnlist
