@@ -6,7 +6,6 @@ def load_words(filename):
 def findAnagramsInList(wordlist):
     from collections import defaultdict
     anagram_dict = defaultdict(list)
-    returnlist = []
     for word in wordlist:
         key = "".join(sorted(word))
         anagram_dict[key].append(word)
