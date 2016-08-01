@@ -1,13 +1,6 @@
-
-def parseWords(word):
-    returnword = word.lower()
-    returnword = returnword.replace(" ", "")
-    returnword = returnword.replace("'", "")
-    return returnword
-
 def load_words(filename):
-    with open(filename) as f:
-        for line in f:
+    with open(filename) as inputfile:
+        for line in inputfile:
             yield line.rstrip()
 
 def findAnagramsInList(wordlist):
@@ -15,7 +8,15 @@ def findAnagramsInList(wordlist):
     anagram_dict = defaultdict(list)
     returnlist = []
     for word in wordlist:
-        key = "".join(sorted(parseWords(word)))
+        key = "".join(sorted(word))
         anagram_dict[key].append(word)
     returnlist = [anagrams for key, anagrams in anagram_dict.iteritems() if len(anagrams) > 1]
+    printAnagramsToFile(returnlist)
     return returnlist
+
+def printAnagramsToFile(anagramlist):
+    with open('anagrams.txt', mode='wt') as anagramfile:
+        for line in anagramlist:
+            for word in line:
+                anagramfile.write(''.join(word) + ' ')
+            anagramfile.write('\n')
