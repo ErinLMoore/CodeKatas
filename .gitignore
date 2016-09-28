@@ -1,4 +1,6 @@
 *.pyc
 .gradle
 gradle
+gradlew
+gradlew.bat
 build
