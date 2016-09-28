@@ -1,0 +1,4 @@
+*.pyc
+.gradle
+gradle
+build
