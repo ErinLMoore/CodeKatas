@@ -17,4 +17,4 @@ end
 end
 
 afizzbuzz =  Fizzbuzz.new
-puts afizzbuzz.fizzbuzzer(ARGV[0])
+puts afizzbuzz.fizzbuzzer(ARGV[0].to_i)
